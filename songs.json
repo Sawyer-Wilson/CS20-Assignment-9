@@ -1,0 +1,106 @@
+{
+    "songs": [
+        {
+            "title": "Get Back",
+            "artists": [
+                "The Beatles",
+                "Billy Preston"
+            ],
+            "genres": [
+                "70s"
+            ],
+            "year_released": "1969"
+        }, 
+        {
+            "title": "Let It Be",
+            "artists": [
+                "The Beatles"
+            ],
+            "genres": [
+                "70s"
+            ],
+            "year_released": "1970"
+        },
+        {
+            "title": "Higher Ground",
+            "artists": [
+                "Stevie Wonder"
+            ],
+            "genres": [
+                "70s"
+            ],
+            "year_released": "1973"
+        },
+        {
+            "title": "Isn't She Lovely",
+            "artists": [
+                "Stevie Wonder"
+            ],
+            "genres": [
+                "70s"
+            ],
+            "year_released": "1976"
+        },
+        {
+            "title": "Superstition",
+            "artists": [
+                "Stevie Wonder"
+            ],
+            "genres": [
+                "70s"
+            ],
+            "year_released": "1972"
+        },
+        {
+            "title": "Rocket Man",
+            "artists": [
+                "Elton John"
+            ],
+            "genres": [
+                "70s"
+            ],
+            "year_released": "1972"
+        },
+        {
+            "title": "Simple Man",
+            "artists": [
+                "Lynyrd Skynyrd"
+            ],
+            "genres": [
+                "70s",
+                "Southern Rock"
+            ],
+            "year_released": "1973"
+        },
+        {
+            "title": "What's Going On",
+            "artists": [
+                "Marvin Gaye"
+            ],
+            "genres": [
+                "70s"
+            ],
+            "year_released": "1971"
+        },
+        {
+            "title": "Baila Esta Cumbia",
+            "artists": [
+                "Selena"
+            ],
+            "genres": [
+                "Latin"
+            ],
+            "year_released": "1990"
+        },
+        {
+            "title": "Como La Flor",
+            "artists": [
+                "Selena"
+            ],
+            "genres": [
+                "Latin"
+            ],
+            "year_released": "1995"
+        }
+    ]
+}
