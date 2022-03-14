@@ -13,9 +13,12 @@
     <script>
         fetch("songs.json")
             .then(response => response.json())
-            .then(json => console.log(json));
+            .then(json => {
+                document.getElementById("raw-songs").innerHTML = JSON.stringify(json);
+                
+            })
+            .catch(error => console.log(error));
 
-        // document.getElementById("raw-songs").innerHTML = 
     </script>
 </body>
 </html>
