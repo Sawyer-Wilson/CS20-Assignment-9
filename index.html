@@ -5,19 +5,216 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JSON Song List</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <style>
+        th, td {
+            border: 1px solid;
+            text-align: left;
+            padding: 5px;
+            width: 25%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #filter-table {
+            margin-bottom: 300px;
+        }
+    </style>
 </head>
 <body>
+    <!-- <script>
+        object = {
+                    "songs": [
+                        {
+                            "title": "Get Back",
+                            "artists": [
+                                "The Beatles",
+                                "Billy Preston"
+                            ],
+                            "genres": [
+                                "70s"
+                            ],
+                            "year_released": "1969"
+                        }, 
+                        {
+                            "title": "Let It Be",
+                            "artists": [
+                                "The Beatles"
+                            ],
+                            "genres": [
+                                "70s"
+                            ],
+                            "year_released": "1970"
+                        },
+                        {
+                            "title": "Higher Ground",
+                            "artists": [
+                                "Stevie Wonder"
+                            ],
+                            "genres": [
+                                "70s"
+                            ],
+                            "year_released": "1973"
+                        },
+                        {
+                            "title": "Isn't She Lovely",
+                            "artists": [
+                                "Stevie Wonder"
+                            ],
+                            "genres": [
+                                "70s"
+                            ],
+                            "year_released": "1976"
+                        },
+                        {
+                            "title": "Superstition",
+                            "artists": [
+                                "Stevie Wonder"
+                            ],
+                            "genres": [
+                                "70s"
+                            ],
+                            "year_released": "1972"
+                        },
+                        {
+                            "title": "Rocket Man",
+                            "artists": [
+                                "Elton John"
+                            ],
+                            "genres": [
+                                "70s"
+                            ],
+                            "year_released": "1972"
+                        },
+                        {
+                            "title": "Simple Man",
+                            "artists": [
+                                "Lynyrd Skynyrd"
+                            ],
+                            "genres": [
+                                "70s",
+                                "Southern Rock"
+                            ],
+                            "year_released": "1973"
+                        },
+                        {
+                            "title": "What's Going On",
+                            "artists": [
+                                "Marvin Gaye"
+                            ],
+                            "genres": [
+                                "70s"
+                            ],
+                            "year_released": "1971"
+                        },
+                        {
+                            "title": "Baila Esta Cumbia",
+                            "artists": [
+                                "Selena"
+                            ],
+                            "genres": [
+                                "Latin"
+                            ],
+                            "year_released": "1990"
+                        },
+                        {
+                            "title": "Como La Flor",
+                            "artists": [
+                                "Selena"
+                            ],
+                            "genres": [
+                                "Latin"
+                            ],
+                            "year_released": "1995"
+                        }
+                    ]
+                }
+    </script> -->
+
+
     <h1>JSON Song List</h1>
+
+    <h2>Serialize and display</h2>
     <div id="raw-songs"></div>
+
+    <h2>User Friendly Display</h2>
+    <table id="songs-table">
+        <tr>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Year Released</th>
+        </tr>
+    </table>
+
+    <h2>Filter the Data</h2>
+    <form>
+        <select id="select-genre">
+            <option value="none" selected disabled hidden>Select a Genre</option>
+            <option value="70s">70s</option>
+            <option value="Southern Rock">Southern Rock</option>
+            <option value="Latin">Latin</option>
+        </select>
+        <input type="button" id="filter-btn" value="Filter" onclick="filter()">
+    </form>
+    <table id="filter-table"></table>
 
     <script>
         fetch("songs.json")
             .then(response => response.json())
             .then(json => {
-                document.getElementById("raw-songs").innerHTML = JSON.stringify(json);
-                
+                displayString(json);
+                displayTable(json);
+                filter(json);
             })
             .catch(error => console.log(error));
+
+        // display data in raw json string
+        function displayString(object) {
+            $("#raw-songs").html(JSON.stringify(object));
+        }
+        
+        // display data in user friendly table
+        function displayTable(object) {
+            for (i = 0; i < object.songs.length; i++) {
+                $("#songs-table").append(
+                    '<tr>' +
+                        '<td>' + object.songs[i].title + '</td>' +
+                        '<td>' + object.songs[i].artists.join(', ') + '</td>' +
+                        '<td>' + object.songs[i].genres.join(', ') + '</td>' +
+                        '<td>' + object.songs[i].year_released + '</td>' +
+                    '</tr>'
+                );
+            }
+        }
+
+        // filter form
+        function filter(object) {
+            table = $("#filter-table");
+            table.empty();
+            table.append(
+                '<tr>' +
+                    '<th>Title</th>' +
+                    '<th>Artist</th>' +
+                    '<th>Genre</th>' +
+                    '<th>Year Released</th>' +
+                '</tr>'
+            );
+            genre = $("#select-genre").val();
+            for (i = 0; i < object.songs.length; i++) {
+                if (object.songs[i].genres.includes(genre)) {
+                    table.append(
+                        '<tr>' +
+                            '<td>' + object.songs[i].title + '</td>' +
+                            '<td>' + object.songs[i].artists.join(', ') + '</td>' +
+                            '<td>' + object.songs[i].genres.join(', ') + '</td>' +
+                            '<td>' + object.songs[i].year_released + '</td>' +
+                        '</tr>'
+                    );
+                }
+            }
+        }
 
     </script>
 </body>
