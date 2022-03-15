@@ -170,7 +170,8 @@
                 displayTable();
             })
             .catch(error => console.log(error));
-
+        
+        console.log(object)
         // display data in raw json string
         function displayString() {
             $("#raw-songs").html(JSON.stringify(object));
