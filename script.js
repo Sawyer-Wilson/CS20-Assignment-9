@@ -1,3 +1,5 @@
+// script.js
+
 // get songs as json object from external file
 object = {};
 fetch("songs.json")
@@ -19,10 +21,15 @@ function displayTable() {
     for (i = 0; i < object.songs.length; i++) {
         $("#songs-table").append(
             '<tr>' +
-                '<td>' + object.songs[i].title + '</td>' +
-                '<td>' + object.songs[i].artists.join(', ') + '</td>' +
-                '<td>' + object.songs[i].genres.join(', ') + '</td>' +
-                '<td>' + object.songs[i].year_released + '</td>' +
+                '<td>' + 
+                    object.songs[i].title + 
+                '</td><td>' + 
+                    object.songs[i].artists.join(', ') + 
+                '</td><td>' + 
+                    object.songs[i].genres.join(', ') + 
+                '</td><td>' + 
+                    object.songs[i].year_released + 
+                '</td>' +
             '</tr>'
         );
     }
@@ -45,10 +52,15 @@ function filter() {
         if (object.songs[i].genres.includes(genre)) {
             table.append(
                 '<tr>' +
-                    '<td>' + object.songs[i].title + '</td>' +
-                    '<td>' + object.songs[i].artists.join(', ') + '</td>' +
-                    '<td>' + object.songs[i].genres.join(', ') + '</td>' +
-                    '<td>' + object.songs[i].year_released + '</td>' +
+                    '<td>' + 
+                        object.songs[i].title + 
+                    '</td><td>' + 
+                        object.songs[i].artists.join(', ') + 
+                    '</td><td>' + 
+                        object.songs[i].genres.join(', ') + 
+                    '</td><td>' + 
+                        object.songs[i].year_released + 
+                    '</td>' +
                 '</tr>'
             );
         }
