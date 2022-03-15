@@ -161,22 +161,23 @@
     <table id="filter-table"></table>
 
     <script>
+        object = {};
         fetch("songs.json")
             .then(response => response.json())
             .then(json => {
-                displayString(json);
-                displayTable(json);
-                filter(json);
+                object = json;
+                displayString();
+                displayTable();
             })
             .catch(error => console.log(error));
 
         // display data in raw json string
-        function displayString(object) {
+        function displayString() {
             $("#raw-songs").html(JSON.stringify(object));
         }
         
         // display data in user friendly table
-        function displayTable(object) {
+        function displayTable() {
             for (i = 0; i < object.songs.length; i++) {
                 $("#songs-table").append(
                     '<tr>' +
@@ -190,7 +191,7 @@
         }
 
         // filter form
-        function filter(object) {
+        function filter() {
             table = $("#filter-table");
             table.empty();
             table.append(
