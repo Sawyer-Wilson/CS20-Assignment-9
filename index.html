@@ -4,136 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Song List</title>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <style>
-        th, td {
-            border: 1px solid;
-            text-align: left;
-            padding: 5px;
-            width: 25%;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        #filter-table {
-            margin-bottom: 300px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script src='script.js' type='text/javascript'/></script>
+    <title>JSON Song List</title>
 </head>
 <body>
-    <!-- <script>
-        object = {
-                    "songs": [
-                        {
-                            "title": "Get Back",
-                            "artists": [
-                                "The Beatles",
-                                "Billy Preston"
-                            ],
-                            "genres": [
-                                "70s"
-                            ],
-                            "year_released": "1969"
-                        }, 
-                        {
-                            "title": "Let It Be",
-                            "artists": [
-                                "The Beatles"
-                            ],
-                            "genres": [
-                                "70s"
-                            ],
-                            "year_released": "1970"
-                        },
-                        {
-                            "title": "Higher Ground",
-                            "artists": [
-                                "Stevie Wonder"
-                            ],
-                            "genres": [
-                                "70s"
-                            ],
-                            "year_released": "1973"
-                        },
-                        {
-                            "title": "Isn't She Lovely",
-                            "artists": [
-                                "Stevie Wonder"
-                            ],
-                            "genres": [
-                                "70s"
-                            ],
-                            "year_released": "1976"
-                        },
-                        {
-                            "title": "Superstition",
-                            "artists": [
-                                "Stevie Wonder"
-                            ],
-                            "genres": [
-                                "70s"
-                            ],
-                            "year_released": "1972"
-                        },
-                        {
-                            "title": "Rocket Man",
-                            "artists": [
-                                "Elton John"
-                            ],
-                            "genres": [
-                                "70s"
-                            ],
-                            "year_released": "1972"
-                        },
-                        {
-                            "title": "Simple Man",
-                            "artists": [
-                                "Lynyrd Skynyrd"
-                            ],
-                            "genres": [
-                                "70s",
-                                "Southern Rock"
-                            ],
-                            "year_released": "1973"
-                        },
-                        {
-                            "title": "What's Going On",
-                            "artists": [
-                                "Marvin Gaye"
-                            ],
-                            "genres": [
-                                "70s"
-                            ],
-                            "year_released": "1971"
-                        },
-                        {
-                            "title": "Baila Esta Cumbia",
-                            "artists": [
-                                "Selena"
-                            ],
-                            "genres": [
-                                "Latin"
-                            ],
-                            "year_released": "1990"
-                        },
-                        {
-                            "title": "Como La Flor",
-                            "artists": [
-                                "Selena"
-                            ],
-                            "genres": [
-                                "Latin"
-                            ],
-                            "year_released": "1995"
-                        }
-                    ]
-                }
-    </script> -->
-
-
-    <h1>JSON Song List</h1>
+    <h1>🎶 &nbsp; JSON Song List &nbsp; 🎶</h1>
 
     <h2>Serialize and display</h2>
     <div id="raw-songs"></div>
@@ -170,7 +47,7 @@
                 displayTable();
             })
             .catch(error => console.log(error));
-        
+
         // display data in raw json string
         function displayString() {
             $("#raw-songs").html(JSON.stringify(object));

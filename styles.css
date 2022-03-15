@@ -1,0 +1,64 @@
+body {
+    font-family: Verdana, sans-serif;
+}
+
+h1 {
+    margin: 75px 0px;
+    text-align: center;
+}
+
+h2 {
+    margin: 60px 30px 30px 30px;
+}
+
+#raw-songs {
+    margin: 15px 30px;
+    line-height: 1.6;
+}
+
+th, td {
+    border: 1px solid;
+    text-align: left;
+    padding: 5px;
+    width: 25%;
+}
+
+th {
+    background-color: lightblue;
+}
+
+td {
+    background-color: rgb(173, 216, 230, 0.4);
+}
+
+table {
+    border-collapse: collapse;
+    margin: 15px 30px;
+    width: 75%;
+}
+
+#filter-table {
+    margin-bottom: 300px;
+}
+
+form {
+    margin: 15px 30px;
+}
+
+#select-genre {
+    width: 300px;
+}
+
+#filter-btn {
+    width: 75px;
+}
+
+@media (max-width: 500px) {
+    table {
+        margin: 15px 0px;
+        width: 100%;
+    }
+    #select-genre {
+    width: 150px;
+    }
+}
