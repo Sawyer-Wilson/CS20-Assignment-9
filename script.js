@@ -2,14 +2,14 @@
 
 // get songs as json object from external file
 object = {};
-fetch("songs.json")
-    .then(response => response.json())
-    .then(json => {
-        object = json;
-        displayString();
-        displayTable();
-    })
-    .catch(error => console.log(error));
+window.onload = fetch("songs.json")
+                    .then(response => response.json())
+                    .then(json => {
+                        object = json;
+                        displayString();
+                        displayTable();
+                    })
+                    .catch(error => console.log(error));
 
 // display data in raw json string
 function displayString() {
